@@ -16,3 +16,11 @@ Route::get('/', function () {
 });
 
 route::get('tampil', 'tampilController@tampil')->name('tampil');
+//route::get('test_db','tampilController@test_db')->name('test_db');
+route::get('admin','tampilController@admin');
+route::get('test_db','tampilControllers@test_db')->name('test_db');
+route::get('tabeluser','tampilController@tabeluser')->name('tabeluser');
+
+Route::put('create_database','connectController@create')->name('tambah');
+Route::put('test_update/{admin_id}','connectController@update')->name('update');
+Route::delete('test_delete/{admin_id}','connectController@delete')->name('delete');
