@@ -3,42 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\admin;
+use App\pengguna;
 use Illuminate\Database\Eloquent\softDeletes;
 
-class connectController extends Controller
+class userController extends Controller
 {
     public function create(Request $request)
     {
     	// dd($request->first_name);
     	// query insert dengan eloquent
-    	$c = new admin();
-		$c->admin_id = $request->admin_id;
+    	$c = new user();
+		$c->user_id = $request->user_id;
 		$c->Nama = $request->Nama;
-		$c->password = $request->password;
+		$c->Password = $request->Password;
 		$c->Alamat = $request->Alamat;
+		$c->Email =$request->Email;
 		$c->jenisKelamin = $request->jenisKelamin;
 		$c->NoHp = $request->NoHp;
 		$c->save();
-    	return redirect('tabeladmin')->with('popup',1);
+    	return redirect('tabeluser');
     }
-    public function update(Request $request, $admin_id){
+    public function update(Request $request, $user_id){
     	//cek isi customer id
     	// dd($customer_id);
-    	$c = admin::where('admin_id',$admin_id)->first();
-		$c->admin_id = $request->admin_id;
+    	$c = user::where('user_id',$user_id)->first();
+		$c->user_id = $request->user_id;
 		$c->Nama = $request->Nama;
-		$c->password = $request->password;
+		$c->Password = $request->Password;
 		$c->Alamat = $request->Alamat;
+		$c->Email =$request->Email;
 		$c->jenisKelamin = $request->jenisKelamin;
 		$c->NoHp = $request->NoHp;
 		$c->save();
-		return redirect('tabeladmin')->with('popup',2);
+		return redirect('tabeluser');
     }
-    public function delete(Request $request,$admin_id){
-    	$c = admin::find($admin_id);
+    public function delete(Request $request,$user_id){
+    	$c = user::find($user_id);
     	$c->delete_at = true;
     	$c-> save();
-    	return redirect('tabeladmin')->with('popup',3);
+    	return redirect('tabeluser');
     }
+
 }

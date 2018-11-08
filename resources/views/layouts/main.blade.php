@@ -204,9 +204,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('tabeluser')}}">
+            <a class="nav-link" href="{{route('tabeladmin')}}">
               <span class="menu-title">Table Admin</span>
               <i class="mdi mdi-account menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('tabeluser')}}">
+              <span class="menu-title">Table User</span>
+              <i class="mdi mdi-account-card-details menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">

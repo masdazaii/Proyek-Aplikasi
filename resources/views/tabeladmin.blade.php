@@ -13,18 +13,16 @@
               	  </br>
                   <table class="table table-bordered">
             		<tr>
-                        <th>user id</th>
+                        <th>admin id</th>
                         <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>Email</th>
+                        <th>Password</th>
                         <th>Pilihan</th>
                     </tr>
-                    @foreach($pengguna as $data)
+                    @foreach($admin as $data)
                     <tr>
-                        <th>{{$data->user_id}}</th>
+                        <th>{{$data->admin_id}}</th>
                         <th>{{$data->Nama}}</th>
-                   	    <th>{{$data->Alamat}}</th>
-                        <th>{{$data->Email}}</th>
+                   	    <th>{{$data->password}}</th>
                         <th>
                            <button type="button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#ubah">Ubah</button>
                            <button type="button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#hapus">Hapus</button>
@@ -48,7 +46,7 @@
 	                                <div class="col-sm-12">
 	                                    <div class="form-group">
 	                                        <div class="form-line">
-	                                            <input type="text" class="form-control" placeholder="user Id" name="user_id" />
+	                                            <input type="text" class="form-control" placeholder="Admin Id" name="admin_id" />
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group">
@@ -58,7 +56,7 @@
 	                                    </div>
 	                                   	<div class="form-group">
 	                                        <div class="form-line">
-	                                            <input type="text" class="form-control" placeholder="Password" name="Password" />
+	                                            <input type="text" class="form-control" placeholder="Password" name="password" />
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group">
@@ -66,11 +64,11 @@
 	                                            <input type="text" class="form-control" placeholder="Alamat" name="Alamat" />
 	                                        </div>
 	                                    </div>
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" placeholder="Jenis Kelamin" name="jenisKelamin" />
-                                            </div>
-                                        </div>
+	                                    <div class="form-group">
+	                                        <div class="form-line">
+	                                            <input type="text" class="form-control" placeholder="Jenis Kelamin" name="jenisKelamin"/>
+	                                        </div>
+	                                    </div>
 	                                    <div class="form-group">
 	                                        <div class="form-line">
 	                                            <input type="text" class="form-control" placeholder="Nomor Telefon" name="NoHp" />
@@ -90,7 +88,7 @@
                 </div>
             </div>
 
-            @foreach($pengguna as $data)
+            @foreach($admin as $data)
             <div class="modal fade" id="ubah" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -98,12 +96,12 @@
                             <h2 class="card-inside-title">Update data</h2>
                         </div>
                         <div class="modal-body">
-                        	<form action="{{route('update',$data->user_id)}}" method="POST">
+                        	<form action="{{route('update', $data->admin_id)}}" method="POST">
 	                            <div class="row clearfix">
 	                                <div class="col-sm-12">
 	                                    <div class="form-group">
 	                                        <div class="form-line">
-	                                            <input type="text" class="form-control" placeholder="Store Id" name="user_id"  value="{{$data->user_id}}" />
+	                                            <input type="text" class="form-control" placeholder="Store Id" name="admin_id"  value="{{$data->admin_id}}" />
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group">
@@ -113,27 +111,22 @@
 	                                    </div>
 	                                   	<div class="form-group">
 	                                        <div class="form-line">
-	                                            <input type="password" class="form-control" placeholder="Last Name" name="Password"  value="{{$data->Password}}" />
+	                                            <input type="password" class="form-control" placeholder="Last Name" name="password"  value="{{$data->password}}" />
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group">
 	                                        <div class="form-line">
-	                                            <input type="text" class="form-control" placeholder="Alamat" name="Alamat" value="{{$data->Alamat}}"  />
-	                                        </div>
-	                                    </div>
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" placeholder="E-mail" name="Email" value="{{$data->Email}}"/>
-                                            </div>
-                                        </div>
-	                                    <div class="form-group">
-	                                        <div class="form-line">
-	                                            <input type="text" class="form-control" placeholder="jenis Kelamin" name="address_id" value="{{$data->jenisKelamin}}" />
+	                                            <input type="text" class="form-control" placeholder="E-mail" name="Alamat" value="{{$data->Alamat}}"  />
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group">
 	                                        <div class="form-line">
-	                                            <input type="text" class="form-control" placeholder="No Telefon" name="NoHp"  value="{{$data->NoHp}}" />
+	                                            <input type="text" class="form-control" placeholder="jenisKelamin" name="address_id" value="{{$data->jenisKelamin}}" />
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <div class="form-line">
+	                                            <input type="text" class="form-control" placeholder="Active" name="NoHp"  value="{{$data->NoHp}}" />
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -151,7 +144,7 @@
             </div>
             @endforeach
 
-            @foreach($pengguna as $data)
+            @foreach($admin as $data)
             <div class="modal fade" id="hapus" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -159,7 +152,7 @@
                             <h4 class="modal-title" id="defaultModalLabel"> Are you sure to delete this data</h4>
                         </div>
                         <div class="modal-body">
-                        	<form action="{{route('delete',$data->user_id)}}" method="POST">
+                        	<form action="{{route('delete',$data->admin_id)}}" method="POST">
                         		{{ method_field('DELETE') }}
                         		<div class="modal-footer">
                             		<button type="submit" class="btn btn-link waves-effect">DELETE</button>
